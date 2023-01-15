@@ -1,0 +1,44 @@
+                                              // Seive primefactorization
+                                              vector<int>low(1e6); 
+void sieve(){
+    int n = 1e6;
+    for(int i = 2; i<=n; i++){
+        low[i] = i;
+    }
+
+    for(int i = 2; i*i <= n; i++){
+        if(low[i] == i){
+            for(int j =  i*i; j<= n; j += i){
+                if(low[j] == j){ 
+                    low[j] = i;
+                }
+            }
+        }
+    }
+}
+
+vector<int>prime_fact(int x){
+    vector<int>res;
+    while (x > 1)
+    {
+        res.push_back(low[x]);
+        x /= low[x];
+    }
+    return res;
+}
+
+int32_t main(){
+    FastIO;
+    sieve();
+    int n;cin>>n;
+    while (n--)
+    {
+        int p;cin>>p;
+        vector<int>res;
+        res = prime_fact(p);
+        sort(all(res));
+        for(auto it:res)cout<<it<<" ";
+        cout<<endl;
+    }
+    
+}
