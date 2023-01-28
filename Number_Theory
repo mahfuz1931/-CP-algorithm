@@ -42,3 +42,15 @@ int32_t main(){
     }
     
 }
+                                                                // JUST SEIVE
+                                                                
+   bool v[3e5+6];
+   for(i=2;i*i<=h;i++)
+     {
+        if(v[i]==false)
+        {
+            for(j=i*i;j*j<=h;j+=i)
+            v[j]=true;
+        }
+     } 
+
