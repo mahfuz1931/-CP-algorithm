@@ -49,7 +49,7 @@ int32_t main(){
      {
         if(v[i]==false)
         {
-            for(j=i*i;j*j<=h;j+=i)
+            for(j=i*i;j<=h;j+=i)
             v[j]=true;
         }
      } 
