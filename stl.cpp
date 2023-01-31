@@ -42,3 +42,18 @@ ll x=0,y=0;
                 ans++;
             }
             else ans+=5,pr[{{x,y},{a,b}}]=1,pr[{{a,b},{x,y}}]=1;
+		                             
+		
+		             // ARRAY LOWER_BOUND
+		   
+		  int a[n],b[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+        b[i] = a[i];
+    }
+    for (int i = n-2; i >= 0; --i) {
+        b[i] = min(b[i],b[i+1]);
+    }
+    for (int i = 0; i < n; ++i) {
+        cout << lower_bound(b+i+1,b+n,a[i])-b-i-2 << " ";
+    }
